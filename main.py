@@ -1,42 +1,20 @@
-"""Завдання 1
- Створіть клас «Дріб». Збережіть у класі чисельник
-та знаменник. Реалізуйте методи класу для введення і ведення даних.
-Також створіть методи класу для
-виконання арифметичних операцій (додавання,
-віднімання, множення, ділення і т. д.). До вже
-реалізованого класу «Дріб» додайте необхідні
-перевантажені методи та оператори."""
+"""Завдання 2
+Реалізуйте клас «Стадіон». Збережіть у класі: назву
+стадіону, дату відкриття, країну, місто, місткість. Реалізуйте
+методи класу для введення-виведення даних та інших
+операцій. Д о вже реалізованого класу «Стадіон» додайте
+необхідні перевантажені методи та оператори."""
 
-class Fraction:
-    def __init__(self, numerator, denominator):
-        self.numerator = numerator
-        self.denominator = denominator
-
-    def __str__(self):
-        return f"{self.numerator}/{self.denominator}"
-
-    def __add__(self, other):
-        new_numerator = self.numerator * other.denominator + other.numerator * self.denominator
-        new_denominator = self.denominator * other.denominator #спільний знаменник
-        return Fraction(new_numerator, new_denominator)
+class Stadium:
+    def __init__(self, name, opening_date, country, city, capacity):
+        self.name = name
+        self.opening_date = opening_date
+        self.country = country
+        self.capacity = capacity
 
     def __sub__(self, other):
-        new_numerator = self.numerator * other.denominator - other.numerator * self.denominator
-        new_denominator = self.denominator * other.denominator #спільний знаменник
-        return Fraction(new_numerator, new_denominator)
+        return abs(self.capacity - other.capacity)
 
-    def __mul__(self, other):
-        new_numerator = self.numerator * other.numerator
-        new_denominator = self.denominator * other.denominator
-        return Fraction(new_numerator, new_denominator)
-
-    def __truediv__(self, other):
-        other.denominator, other.numerator = other.numerator, other.denominator
-        return Fraction.__mul__(self, other)
-
-fraction1 = Fraction(4, 7)
-fraction2 = Fraction(5, 8)
-print(fraction1 + fraction2)
-print(fraction1 - fraction2)
-print(fraction1 * fraction2)
-print(fraction1 / fraction2)
+stadion1 = Stadium("Стадіон 1", "01.01.1995", "Україна", "Київ", 4000)
+stadion2 = Stadium("Стадіон 2", "01.01.1995", "Україна", "Київ", 6000)
+print(stadion1 - stadion2)
