@@ -12,6 +12,9 @@ class Fraction:
         self.numerator = numerator
         self.denominator = denominator
 
+    def __str__(self):
+        return f"{self.numerator}/{self.denominator}"
+
     def __add__(self, other):
         new_numerator = self.numerator * other.denominator + other.numerator * self.denominator
         new_denominator = self.denominator * other.denominator #спільний знаменник
